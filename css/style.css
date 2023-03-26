@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+.background-img-login
+{
+   background-image: url(hacker.png);
+}
+
+.margin-container
+{
+   margin-top: 330px;
+}
+
+.error-text
+{
+   color:red;
+}
+
+.margin-user-page-menu
+{
+   margin-top: 330px;
+}
+
+#hide
+{
+   display: none;
+}
