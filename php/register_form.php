@@ -6,10 +6,10 @@ if(isset($_POST['submit'])){
 
    $name = mysqli_real_escape_string($conn, $_POST['name']);
    $email = mysqli_real_escape_string($conn, $_POST['email']);
-   $pass = md5($_POST['password']);
-   $cpass = md5($_POST['cpass']);
+   $password = md5($_POST['password']);
+   $password = md5($_POST['password']);
 
-   $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
+   $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$password' ";
 
    $result = mysqli_query($conn, $select);
 
@@ -21,9 +21,9 @@ if(isset($_POST['submit'])){
 
       if($pass != $cpass){
          $error[] = 'password not matched!';
-         
+
       }else{
-         $insert = "INSERT INTO user_form(name, email, password) VALUES('$name','$email','$pass')";
+         $insert = "INSERT INTO user_form(name, email, password) VALUES('$name','$email','$password')";
          mysqli_query($conn, $insert);
          header('location:login_form.php');
       }
@@ -37,6 +37,7 @@ if(isset($_POST['submit'])){
 <!DOCTYPE html>
 <html lang="en">
 <?php
+@include 'config.php';
 @include '../php/InitHTML/head.php';
 ?>
 <body class="background-img-login">
@@ -59,14 +60,14 @@ if(isset($_POST['submit'])){
                      </div>
                      <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon2">password</span>
-                        <input id = "password" type="password" name="password" class="form-control" placeholder="password" aria-label="password" aria-describedby="basic-addon2">
+                        <input id = "pass" type="password" name="password" class="form-control" placeholder="password" aria-label="password" aria-describedby="basic-addon2">
                      </div>
                      <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon2">confirm password</span>
-                        <input id = "cpass"  type="password" name="confirm password" class="form-control" placeholder="confirm password" aria-label="password" aria-describedby="basic-addon2">
+                        <input id = "password"  type="password" name="confirm password" class="form-control" placeholder="confirm password" aria-label="password" aria-describedby="basic-addon2">
                      </div>
                      <div class="input-group mb-3">
-                        <button type="submit" class="btn btn-primary">log in</button>
+                        <button type="submit" class="btn btn-primary">register</button>
                      </div>
                      <p class="error-text">
                         <?php
